@@ -57,6 +57,9 @@ type Associations struct {
 	Deals struct {
 		Results []AssociationResult `json:"results"`
 	} `json:"deals"`
+	Companies struct {
+		Results []AssociationResult `json:"results"`
+	} `json:"companies"`
 }
 
 type AssociationResult struct {
