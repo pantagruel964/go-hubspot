@@ -40,7 +40,8 @@ type Client struct {
 
 // RequestPayload is common request structure for HubSpot APIs.
 type RequestPayload struct {
-	Properties interface{} `json:"properties,omitempty"`
+	Properties   interface{}   `json:"properties,omitempty"`
+	Associations []interface{} `json:"associations,omitempty"`
 }
 
 // ResponseResource is common response structure for HubSpot APIs.

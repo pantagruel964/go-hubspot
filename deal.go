@@ -107,8 +107,8 @@ func (s *DealServiceOp) Get(dealID string, deal interface{}, option *RequestQuer
 // Create creates a new deal.
 // In order to bind the created content, a structure must be specified as an argument.
 // When using custom fields, please embed hubspot.Deal in your own structure.
-func (s *DealServiceOp) Create(deal interface{}) (*ResponseResource, error) {
-	req := &RequestPayload{Properties: deal}
+func (s *DealServiceOp) Create(deal interface{}, associations []interface{}) (*ResponseResource, error) {
+	req := &RequestPayload{Properties: deal, Associations: associations}
 	resource := &ResponseResource{Properties: deal}
 	if err := s.client.Post(s.dealPath, req, resource); err != nil {
 		return nil, err
