@@ -161,8 +161,9 @@ func ExampleDealServiceOp_Create_apikey() {
 		DealOwnerID: hubspot.NewString(example.ownerID),
 		PipeLine:    hubspot.NewString("default"),
 	}
+	var associations []interface{}
 
-	res, err := cli.CRM.Deal.Create(deal)
+	res, err := cli.CRM.Deal.Create(deal, associations)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -202,8 +203,9 @@ func ExampleDealServiceOp_Create_oauth() {
 		DealOwnerID: hubspot.NewString(example.ownerID),
 		PipeLine:    hubspot.NewString("default"),
 	}
+	var associations []interface{}
 
-	res, err := cli.CRM.Deal.Create(deal)
+	res, err := cli.CRM.Deal.Create(deal, associations)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -238,8 +240,9 @@ func ExampleDealServiceOp_Create_privateapp() {
 		DealOwnerID: hubspot.NewString(example.ownerID),
 		PipeLine:    hubspot.NewString("default"),
 	}
+	var associations []interface{}
 
-	res, err := cli.CRM.Deal.Create(deal)
+	res, err := cli.CRM.Deal.Create(deal, associations)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -285,8 +288,9 @@ func ExampleDealServiceOp_Create_custom() {
 		CustomA: "custom field A",
 		CustomB: "custom field B",
 	}
+	var associations []interface{}
 
-	res, err := cli.CRM.Deal.Create(deal)
+	res, err := cli.CRM.Deal.Create(deal, associations)
 	if err != nil {
 		log.Fatal(err)
 	}

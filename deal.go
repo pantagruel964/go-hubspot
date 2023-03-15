@@ -10,7 +10,7 @@ const (
 // Reference: https://developers.hubspot.com/docs/api/crm/deals
 type DealService interface {
 	Get(dealID string, deal interface{}, option *RequestQueryOption) (*ResponseResource, error)
-	Create(deal interface{}) (*ResponseResource, error)
+	Create(deal interface{}, associations []interface{}) (*ResponseResource, error)
 	Update(dealID string, deal interface{}) (*ResponseResource, error)
 	AssociateAnotherObj(dealID string, conf *AssociationConfig) (*ResponseResource, error)
 }

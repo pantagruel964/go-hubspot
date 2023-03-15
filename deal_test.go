@@ -18,13 +18,15 @@ func TestDealServiceOp_Create(t *testing.T) {
 		PipeLine:    hubspot.NewString("default"),
 		CloseDate:   &closeDate,
 	}
+	var associations []interface{}
 
 	type fields struct {
 		dealPath string
 		client   *hubspot.Client
 	}
 	type args struct {
-		deal interface{}
+		deal         interface{}
+		associations []interface{}
 	}
 	tests := []struct {
 		name    string
@@ -75,7 +77,8 @@ func TestDealServiceOp_Create(t *testing.T) {
 				}),
 			},
 			args: args{
-				deal: deal,
+				deal:         deal,
+				associations: associations,
 			},
 			want: nil,
 			wantErr: &hubspot.APIError{
@@ -91,7 +94,7 @@ func TestDealServiceOp_Create(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := tt.fields.client.CRM.Deal.Create(tt.args.deal)
+			got, err := tt.fields.client.CRM.Deal.Create(tt.args.deal, tt.args.associations)
 			if !reflect.DeepEqual(tt.wantErr, err) {
 				t.Errorf("Create() error mismatch: want %s got %s", tt.wantErr, err)
 				return
